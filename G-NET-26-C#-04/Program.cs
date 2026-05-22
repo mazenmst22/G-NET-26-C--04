@@ -126,7 +126,52 @@ namespace G_NET_26_CSharp_04
 
             Console.WriteLine("------------------------------");
             Console.WriteLine($"Final Ticket Price: {finalPrice} LE");
-            #endregion 
+            #endregion
+            #region Q3
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine();
+            //Task (a):
+            string fileExtension = ".pdf";
+            string fileType;
+            Console.WriteLine("Task (a) Q3:");
+            //switch (fileExtension)
+            //{
+            //    case ".pdf":
+            //        fileType = "PDF Document";
+            //        break;
+            //    case ".docx":
+            //    case ".doc":
+            //        fileType = "Word Document";
+            //        break;
+            //    case ".xlsx":
+            //    case ".xls":
+            //        fileType = "Excel Spreadsheet";
+            //        break;
+            //    case ".jpg":
+            //    case ".png":
+            //    case ".gif":
+            //        fileType = "Image File";
+            //        break;
+            //    default:
+            //        fileType = "Unknown File Type";
+            //        break;
+            //}
+            Console.WriteLine("==============================================");
+            Console.WriteLine("Task (b) Q3: ");
+            //Task (b):
+            //string fileExtension = ".pdf";
+
+            //string fileType = fileExtension switch
+            //{
+            //    ".pdf" => "PDF Document",
+            //    ".docx" or ".doc" => "Word Document",
+            //    ".xlsx" or ".xls" => "Excel Spreadsheet",
+            //    ".jpg" or ".png" or ".gif" => "Image File",
+            //    _ => "Unknown File Type"
+            //};
+            #endregion
+
         }
     }
 }
