@@ -171,6 +171,20 @@ namespace G_NET_26_CSharp_04
             //    _ => "Unknown File Type"
             //};
             #endregion
+            #region Q4
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine();
+            int temperature = 35;
+
+            string weatherAdvice = (temperature < 0) ? "Freezing! Stay indoors." :
+                                   (temperature < 15) ? "Cold. Wear a jacket." :
+                                   (temperature < 25) ? "Pleasant weather." :
+                                   (temperature < 35) ? "Warm. Stay hydrated." :
+                                   "Hot! Avoid sun exposure.";
+            //Ternary operator can degrade code readability, especially when there are multiple conditions and nested ternary operators,
+            //So, in this case, if-else statements is suggested for better readability and maintainability.
+            #endregion 
 
         }
     }
