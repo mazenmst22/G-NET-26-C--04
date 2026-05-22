@@ -237,6 +237,68 @@ namespace G_NET_26_CSharp_04
             }
             */
             #endregion
+            #region Q6
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine();
+            int[] scores = { 85, 45, 92, 38, 75, 60, 95, 50, 88, 72 };
+
+            // (a):
+            Console.WriteLine("Failing scores (below 50):");
+            foreach (int score in scores)
+            {
+                if (score < 50)
+                {
+                    Console.WriteLine(score);
+                }
+            }
+
+            // (b) :
+            Console.WriteLine("\nFirst score above 90:");
+            for (int i = 0; i < scores.Length; i++)
+            {
+                if (scores[i] > 90)
+                {
+                    Console.WriteLine(scores[i]);
+                    break;
+                }
+            }
+
+            // (c) :
+            int sum = 0;
+            int validCount = 0;
+
+            foreach (int score in scores)
+            {
+                if (score >= 40)
+                {
+                    sum += score;
+                    validCount++;
+                }
+            }
+
+            double average = validCount > 0 ? (double)sum / validCount : 0;
+            Console.WriteLine($"\nClass average (excluding scores < 40): {average:F2}");
+
+            // (d) :
+            int countA = 0, countB = 0, countC = 0, countD = 0, countF = 0;
+
+            foreach (int score in scores)
+            {
+                if (score >= 90 && score <= 100) countA++;
+                else if (score >= 80 && score <= 89) countB++;
+                else if (score >= 70 && score <= 79) countC++;
+                else if (score >= 60 && score <= 69) countD++;
+                else if (score < 60) countF++;
+            }
+
+            Console.WriteLine("\nGrade Distribution:");
+            Console.WriteLine($"A (90-100): {countA}");
+            Console.WriteLine($"B (80-89): {countB}");
+            Console.WriteLine($"C (70-79): {countC}");
+            Console.WriteLine($"D (60-69): {countD}");
+            Console.WriteLine($"F (Below 60): {countF}");
+            #endregion
 
         }
     }
