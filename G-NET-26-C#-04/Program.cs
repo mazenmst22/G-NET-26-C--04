@@ -1,10 +1,62 @@
-﻿namespace G_NET_26_CSharp_04
+﻿using System.Text;
+using System.Diagnostics;
+namespace G_NET_26_CSharp_04
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-           
+            #region Q1
+            //Question 01 : A junior developer wrote this code to build 
+            //a comma - separated list of 5,000 product IDs:
+            //(a) Explain why this code is inefficient. Reference what happens in memory.
+            //answer:
+            //This code is inefficient because strings in C# are immutable,
+            //meaning that every time you concatenate a new product ID to the string,
+            //a new string object is created in memory.
+            //This leads to a large number of temporary string objects being created and discarded,
+            //which can cause significant memory overhead and slow down performance,
+            //especially when dealing with a large number of product IDs like 5,000.
+            //In this case where we are concatenating 5000 product IDs,
+            //and editing the string 5000 times, StringBuilder is needed as it is more efficient for such operations.
+            //========================================================================================================
+            //(b) Rewrite the code to be more efficient.
+            //StringBuilder ProductList = new StringBuilder("");
+            //for(int i=1; i <= 5000; i++)
+            //{
+            //    ProductList.Append($"Prod-{i},");
+            //}
+            //ProductList.ToString();
+            //========================================================================================================
+            //(c) Add timing code (using Stopwatch) to both versions and report the time difference.
+            Stopwatch sw = new Stopwatch();
+            Console.WriteLine("Starting Timer for 5000 iterations.");
+            GC.Collect();
+            sw.Start();
+            string prodList = "";
+            for (int i = 0; i <= 5000; i++)
+            {
+                prodList += $"Prod-{i},";
+            }
+            sw.Stop();
+            int Time1 = (int)sw.ElapsedMilliseconds;
+            sw.Reset();
+            GC.Collect();
+            Console.WriteLine("Starting Timer for 5000 iterations (Using StringBuilder).");
+            sw.Start();
+            StringBuilder ProductList = new StringBuilder(50000);
+            for (int i = 0; i <= 5000; i++)
+            {
+                ProductList.Append($"Prod-{i},");
+            }
+            string prodList2 = ProductList.ToString();
+            sw.Stop();
+            int Time2 = (int)sw.ElapsedMilliseconds;
+            Console.WriteLine($"Time taken for string concatenation: {Time1} ms ");
+            Console.WriteLine($"Time taken for StringBuilder concatenation: {Time2} ms ");
+
+
+            #endregion
         }
     }
 }
