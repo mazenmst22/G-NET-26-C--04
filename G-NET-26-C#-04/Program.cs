@@ -57,6 +57,76 @@ namespace G_NET_26_CSharp_04
 
 
             #endregion
+            #region Q2
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine();
+            Console.Write("Enter age: ");
+            int age = int.Parse(Console.ReadLine());
+            Console.Write("Enter day of week (1-7, where 6=Fri, 7=Sat): ");
+            int dayOfWeek = int.Parse(Console.ReadLine());
+            Console.Write("Do you have a valid student ID? (yes/no): ");
+            string studentInput = Console.ReadLine().Trim().ToLower();
+            bool isStudent = (studentInput == "yes");
+
+            double basePrice = 0;
+            string ageBracket = "";
+
+            // Task (a):
+            if (age < 5)
+            {
+                basePrice = 0;
+                ageBracket = "Age < 5";
+            }
+            else if (age >= 5 && age <= 12)
+            {
+                basePrice = 30;
+                ageBracket = "Age 5 - 12";
+            }
+            else if (age >= 13 && age <= 59)
+            {
+                basePrice = 50;
+                ageBracket = "Age 13 - 59";
+            }
+            else if (age >= 60)
+            {
+                basePrice = 25;
+                ageBracket = "Age 60+";
+            }
+            //Task (b):
+            double finalPrice = basePrice;
+            double weekendSurcharge = 0;
+            double studentDiscountAmount = 0;
+
+            if (basePrice > 0 && (dayOfWeek == 6 || dayOfWeek == 7))
+            {
+                weekendSurcharge = 10;
+                finalPrice += weekendSurcharge;
+            }
+
+            if (basePrice > 0 && isStudent)
+            {
+                studentDiscountAmount = finalPrice * 0.20;
+                finalPrice -= studentDiscountAmount;
+            }
+
+            // Task (c): 
+            Console.WriteLine("\n/// Ticket Price Breakdown ///");
+            Console.WriteLine($"Base Price ({ageBracket}): {basePrice} LE");
+
+            if (weekendSurcharge > 0)
+            {
+                Console.WriteLine($"Weekend Surcharge: +{weekendSurcharge} LE");
+            }
+
+            if (studentDiscountAmount > 0)
+            {
+                Console.WriteLine($"Student Discount (20%): -{studentDiscountAmount} LE");
+            }
+
+            Console.WriteLine("------------------------------");
+            Console.WriteLine($"Final Ticket Price: {finalPrice} LE");
+            #endregion 
         }
     }
 }
