@@ -184,7 +184,59 @@ namespace G_NET_26_CSharp_04
                                    "Hot! Avoid sun exposure.";
             //Ternary operator can degrade code readability, especially when there are multiple conditions and nested ternary operators,
             //So, in this case, if-else statements is suggested for better readability and maintainability.
-            #endregion 
+            #endregion
+            #region Q5
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine();
+            /*
+            int attempts = 0;
+            int maxAttempts = 5;
+            bool isValid = false;
+
+            do
+            {
+                Console.Write("Enter password: ");
+                string password = Console.ReadLine() ?? "";
+                attempts++;
+
+                bool hasMinLength = password.Length >= 8;
+                bool hasUpper = false;
+                bool hasDigit = false;
+                bool hasNoSpace = true;
+
+                foreach (char c in password)
+                {
+                    if (char.IsUpper(c)) hasUpper = true;
+                    if (char.IsDigit(c)) hasDigit = true;
+                    if (c == ' ') hasNoSpace = false;
+                }
+
+                isValid = hasMinLength && hasUpper && hasDigit && hasNoSpace;
+
+                if (isValid)
+                {
+                    Console.WriteLine("Password accepted!");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid password. Violations:");
+                    if (!hasMinLength) Console.WriteLine("- Minimum 8 characters required.");
+                    if (!hasUpper) Console.WriteLine("- At least one uppercase letter required.");
+                    if (!hasDigit) Console.WriteLine("- At least one digit required.");
+                    if (!hasNoSpace) Console.WriteLine("- No spaces allowed.");
+
+                    Console.WriteLine($"Attempts remaining: {maxAttempts - attempts}\n");
+                }
+
+            } while (!isValid && attempts < maxAttempts);
+
+            if (!isValid)
+            {
+                Console.WriteLine("Account locked");
+            }
+            */
+            #endregion
 
         }
     }
